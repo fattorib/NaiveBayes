@@ -14,7 +14,7 @@ class NaiveBayes:
         if estimator == "MAP":
             assert (
                 alpha is not None and beta is not None
-            ), "Gamma priors for a,b must be defined when using MAP estimator"
+            ), "Beta priors for a,b must be defined when using MAP estimator"
             self.map_array = self.fit_MAP(X, y, alpha, beta)
 
     # ------- Fitting Params (MLE of Bernoulli param per feature, $\theta_{dc}$) -------#
@@ -48,7 +48,7 @@ class NaiveBayes:
         self.map_array = map_array
 
     def compute_conditional_class_dist(self, x, c, arr):
-        # Explain this code
+        
         class_dist = arr[:, c]
 
         prob = (class_dist ** (x)) * ((1 - class_dist) ** (1 - x))
