@@ -11,11 +11,6 @@ X_train, Y_train, X_test, Y_test = fetch_mnist()
 # X_train, Y_train, X_test, Y_test = fetch_fashionmnist()
 
 
-X_train = (X_train > 122).astype(np.int_)
-
-X_test = (X_test > 122).astype(np.int_)
-
-
 nb = NaiveBayes(num_classes=10)
 MLE_array = nb.fit_MLE(X_train, Y_train)
 
@@ -27,7 +22,7 @@ print(f"Accuracy: {100*score:.2f} %")
 
 nb.visualize_conditional_distributions(estimator="MLE")
 
-MAP_array = nb.fit_MAP(X_train, Y_train, alpha=0.5, beta = 0.5)
+MAP_array = nb.fit_MAP(X_train, Y_train, alpha=0.5, beta=0.5)
 
 preds = nb.predict(X_test, estimator="MAP")
 

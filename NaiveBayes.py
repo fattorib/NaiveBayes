@@ -103,7 +103,7 @@ class NaiveBayes:
 
         i = 0
         for ax in axes:
-            ax.imshow((conditional_array[:, i]).reshape(28, 28), cmap = 'bone')
+            ax.imshow((conditional_array[:, i]).reshape(28, 28))
             i += 1
 
         for ax in axes:

@@ -19,6 +19,11 @@ def fetch_mnist():
         .astype(np.float32)
     )
     Y_test = parse("datasets/mnist/t10k-labels-idx1-ubyte.gz")[8:]
+
+    X_train = (X_train > 122).astype(np.int_)
+
+    X_test = (X_test > 122).astype(np.int_)
+
     return X_train, Y_train, X_test, Y_test
 
 
@@ -36,4 +41,9 @@ def fetch_fashionmnist():
         .astype(np.float32)
     )
     Y_test = parse("datasets/fashionmnist/t10k-labels-idx1-ubyte.gz")[8:]
+
+    X_train = (X_train > 122).astype(np.int_)
+
+    X_test = (X_test > 122).astype(np.int_)
+
     return X_train, Y_train, X_test, Y_test
